@@ -7,7 +7,6 @@
     <title>Our Memories</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Ensure the text is always on top of the image */
         .memory-container {
             position: relative;
             overflow: hidden;
@@ -98,31 +97,39 @@
     </header>
 
     <main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
+        <!-- Memory 1 -->
         <div class="memory-container">
-            <img src="assets/mem1.png" alt="September 26: Where it started" class="cursor-pointer" onclick="openModal(this)">
-            <div class="memory-text cursor-pointer" onclick="openModal(this)">
+            <img src="assets/mem1.png" alt="Memory 1" class="cursor-pointer" onclick="openImageModal(this)">
+            <div class="memory-text cursor-pointer" onclick="openTextModal(this, 'September 26 2024', 'Where it all started...', 'assets/audio.mp3', 'assets/video.mp4')">
                 <h2>September 26 2024</h2>
                 <p class="memory-description">Where it all started...</p>
             </div>
         </div>
-        <!-- Additional memory containers can go here -->
+
+        <!-- Memory 2 -->
+        <div class="memory-container">
+            <img src="assets/IMG_4275.HEIC" alt="Memory 2" class="cursor-pointer" onclick="openImageModal(this)">
+            <div class="memory-text cursor-pointer" onclick="openTextModal(this, 'October 5 2024', 'NYC Adventure & Our First Kiss...', 'assets/audio.mp3', 'assets/video.mp4')">
+                <h2>October 5 2024</h2>
+                <p class="memory-description">NYC Adventure & Our First Kiss...</p>
+            </div>
+        </div>
     </main>
 
+    <!-- Modal -->
     <div id="myModal" class="modal">
         <span class="close" onclick="closeModal()">&times;</span>
-        <img class="modal-content" id="img01">
-        <textarea id="note" placeholder="Write your memory here..."></textarea>
-        <div class="media-player">
-            <audio controls>
-                <source src="assets/audio.mp3" type="audio/mpeg">
-                Your browser does not support the audio element.
-            </audio>
-        </div>
-        <div class="media-player">
-            <video controls>
-                <source src="assets/video.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+        <img class="modal-content" id="modalImg" style="display: none;">
+        <div id="modalText" style="display: none;">
+            <h2 id="modalTitle"></h2>
+            <p id="modalDescription"></p>
+            <textarea id="note" placeholder="Write your memory here..."></textarea>
+            <div class="media-player">
+                <audio controls id="audioPlayer"></audio>
+            </div>
+            <div class="media-player">
+                <video controls id="videoPlayer"></video>
+            </div>
         </div>
     </div>
 
@@ -131,18 +138,34 @@
     </footer>
 
     <script>
-        function openModal(element) {
+        function openImageModal(image) {
             const modal = document.getElementById("myModal");
-            const modalImg = document.getElementById("img01");
+            const modalImg = document.getElementById("modalImg");
+            const modalText = document.getElementById("modalText");
 
             modal.style.display = "flex";
+            modalImg.src = image.src;
+            modalImg.style.display = "block";
+            modalText.style.display = "none";
+        }
 
-            if (element.tagName === "IMG") {
-                modalImg.src = element.src;
-                modalImg.style.display = "block";
-            } else {
-                modalImg.style.display = "none";
-            }
+        function openTextModal(element, title, description, audioSrc, videoSrc) {
+            const modal = document.getElementById("myModal");
+            const modalImg = document.getElementById("modalImg");
+            const modalText = document.getElementById("modalText");
+            const modalTitle = document.getElementById("modalTitle");
+            const modalDescription = document.getElementById("modalDescription");
+            const audioPlayer = document.getElementById("audioPlayer");
+            const videoPlayer = document.getElementById("videoPlayer");
+
+            modal.style.display = "flex";
+            modalImg.style.display = "none";
+            modalText.style.display = "block";
+
+            modalTitle.innerText = title;
+            modalDescription.innerText = description;
+            audioPlayer.src = audioSrc;
+            videoPlayer.src = videoSrc;
         }
 
         function closeModal() {
@@ -161,4 +184,3 @@
 </body>
 
 </html>
-
