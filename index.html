@@ -38,6 +38,35 @@
             height: auto;    /* Maintains the image's aspect ratio */
             object-fit: cover; /* Ensures the image covers the container without stretching */
         }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
     </style>
 </head>
 
@@ -81,4 +110,46 @@
             <img src="assets/IMG_5359.HEIC" alt="Memory 4" class="cursor-pointer" onclick="openModal(this)">
             <div class="memory-text">
                 <h2>Memory 4</h2>
-                <p class="memory-description">A memorable trip we took during the summer.</p
+                <p class="memory-description">A memorable trip we took during the summer.</p>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Modal for image enlargement -->
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="img01">
+    </div>
+
+    <footer class="text-center p-6 bg-black text-white">
+        <p>&copy; 2024 Amanuel & Layla. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Open the modal with the clicked image
+        function openModal(image) {
+            var modal = document.getElementById("myModal");
+            var modalImg = document.getElementById("img01");
+            modal.style.display = "flex";
+            modalImg.src = image.src;
+        }
+
+        // Close the modal
+        function closeModal() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        }
+
+        // Close modal when clicking anywhere outside the image
+        window.onclick = function(event) {
+            var modal = document.getElementById("myModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+
+</html>
