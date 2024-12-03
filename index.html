@@ -1,233 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Layla & Amanuel | VHS Memories</title>
-    <style>
-        /* Overall VHS Look */
-        body {
-            background: #010101;
-            color: white;
-            font-family: 'Courier New', Courier, monospace;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-            background: url('https://cdn.pixabay.com/photo/2017/08/30/21/47/retro-2699709_960_720.jpg') center/cover no-repeat;
-            background-attachment: fixed;
-        }
-
-        /* VHS Frame for Each Image */
-        .vhs-frame {
-            border: 5px solid white;
-            padding: 15px;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
-            margin-bottom: 20px;
-            position: relative;
-            overflow: hidden;
-            background-color: black;
-            border-radius: 5px;
-        }
-
-        .vhs-frame img {
-            width: 100%;
-            height: auto;
-            display: block;
-            object-fit: cover;
-            filter: contrast(1.2) grayscale(0.5);
-            transform: scale(1);
-            transition: transform 0.3s, filter 0.3s;
-            cursor: pointer;
-        }
-
-        .vhs-frame img:hover {
-            transform: scale(1.05);
-            filter: brightness(1.4) contrast(1.8);
-        }
-
-        /* Modal (Lightbox) */
-        .modal {
-            display: none; 
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.9);
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal-content {
-            max-width: 90%;
-            max-height: 90%;
-            margin: auto;
-            border: 3px solid white;
-        }
-
-        .close {
-            position: absolute;
-            top: 10px;
-            right: 25px;
-            color: #f1f1f1;
-            font-size: 35px;
-            font-weight: bold;
-            transition: 0.3s;
-            cursor: pointer;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: #bbb;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        /* Glitch Effect */
-        .glitch-text {
-            font-size: 3rem;
-            color: white;
-            position: relative;
-            text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 0 0 10px rgba(255, 255, 255, 0.7);
-            animation: glitch 1.5s infinite linear;
-        }
-
-        @keyframes glitch {
-            0%, 100% {
-                transform: translate(0, 0);
-            }
-            20% {
-                transform: translate(-5px, -5px);
-            }
-            40% {
-                transform: translate(4px, 3px);
-            }
-            60% {
-                transform: translate(-3px, 5px);
-            }
-            80% {
-                transform: translate(2px, -5px);
-            }
-        }
-
-        /* Page Layout */
-        header {
-            padding: 40px 0;
-            text-align: center;
-        }
-
-        main {
-            margin: 0 5%;
-        }
-
-        .memory {
-            margin-bottom: 50px;
-        }
-
-        footer {
-            background-color: #010101;
-            text-align: center;
-            padding: 10px 0;
-            color: white;
-            font-size: 0.9rem;
-        }
-
-        .timestamp {
-            font-size: 1.2rem;
-            color: white;
-            text-align: right;
-            margin-top: -10px;
-        }
-
-        .memory-text {
-            font-size: 1.1rem;
-            margin-top: 15px;
-            color: white;
-        }
-
-        /* Hover Animations */
-        .memory:hover .vhs-frame img {
-            animation: vhs-glitch 1.5s ease-out infinite;
-        }
-
-        @keyframes vhs-glitch {
-            0%, 100% { transform: scale(1); }
-            25% { transform: scale(1.05); }
-            50% { transform: scale(1.1); }
-            75% { transform: scale(1.05); }
-        }
-
-    </style>
+    <title>Our Memories</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <header>
-        <h1 class="glitch-text">VHS Memories of Layla & Amanuel</h1>
-        <p>Welcome to our nostalgic journey through old-school VHS tapes. Click on the moments to relive them!</p>
+
+<body class="bg-gray-100 text-gray-800">
+
+    <header class="text-center p-10">
+        <h1 class="text-4xl font-bold text-blue-600">Our Special Memories</h1>
+        <p class="mt-2 text-lg text-gray-600">A collection of moments we’ve shared together.</p>
     </header>
 
-    <main>
-        <!-- Memory 1 -->
-        <div class="memory">
-            <div class="vhs-frame">
-                <img src="assets/IMG_3034.JPG" alt="Memory 1" onclick="openModal(this)">
-                <div class="timestamp">1999 - Rewind: The First Trip Together</div>
-                <div class="memory-text">
-                    Our first road trip together, we laughed and bonded like never before. It was magical, just us and the open road.
-                </div>
+    <main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
+        <!-- Image 1 -->
+        <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+            <img src="assets/IMG_3034.JPG" alt="Memory 1" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
+            <div class="p-4">
+                <h2 class="text-xl font-semibold">Memory 1</h2>
+                <p class="text-gray-600">This was the day we went on that amazing hike!</p>
             </div>
         </div>
 
-        <!-- Memory 2 -->
-        <div class="memory">
-            <div class="vhs-frame">
-                <img src="assets/IMG_3275.JPG" alt="Memory 2" onclick="openModal(this)">
-                <div class="timestamp">2002 - The Beach Day</div>
-                <div class="memory-text">
-                    One of the most beautiful days spent with you, the sun was perfect, and the sea breeze was unforgettable.
-                </div>
+        <!-- Image 2 -->
+        <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+            <img src="assets/IMG_3275.JPG" alt="Memory 2" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
+            <div class="p-4">
+                <h2 class="text-xl font-semibold">Memory 2</h2>
+                <p class="text-gray-600">Celebrating our anniversary at the beach.</p>
             </div>
         </div>
 
-        <!-- Memory 3 -->
-        <div class="memory">
-            <div class="vhs-frame">
-                <img src="assets/IMG_3347.JPG" alt="Memory 3" onclick="openModal(this)">
-                <div class="timestamp">2005 - Summer Adventures</div>
-                <div class="memory-text">
-                    We spent an entire summer going on new adventures, never running out of fun and excitement.
-                </div>
+        <!-- Image 3 -->
+        <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+            <img src="assets/IMG_3347.JPG" alt="Memory 3" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
+            <div class="p-4">
+                <h2 class="text-xl font-semibold">Memory 3</h2>
+                <p class="text-gray-600">A fun day at the carnival with lots of laughter.</p>
             </div>
         </div>
 
-        <!-- Additional memories here... -->
+        <!-- Add more images similarly as needed -->
 
     </main>
 
-    <footer>
-        <p>&copy; 2024 Layla & Amanuel. All rights reserved.</p>
-    </footer>
-
-    <!-- Modal (Lightbox) -->
-    <div id="myModal" class="modal">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <img class="modal-content" id="modalImg">
+    <!-- Modal to display enlarged image -->
+    <div id="imageModal" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center hidden">
+        <span class="absolute top-5 right-5 text-white text-3xl cursor-pointer" onclick="closeModal()">×</span>
+        <img id="modalImage" class="max-w-full max-h-full object-contain" src="" alt="Enlarged Image">
     </div>
 
+    <footer class="text-center p-6 bg-blue-600 text-white">
+        <p>&copy; 2024 Amanuel & Layla. All Rights Reserved.</p>
+    </footer>
+
     <script>
-        function openModal(imgElement) {
-            var modal = document.getElementById("myModal");
-            var modalImg = document.getElementById("modalImg");
-            modal.style.display = "flex";
-            modalImg.src = imgElement.src;
+        // Function to open the modal with the clicked image
+        function openModal(image) {
+            var modal = document.getElementById("imageModal");
+            var modalImage = document.getElementById("modalImage");
+            modalImage.src = image.src;  // Set the image source to the clicked image
+            modal.classList.remove("hidden");  // Show the modal
         }
 
+        // Function to close the modal
         function closeModal() {
-            var modal = document.getElementById("myModal");
-            modal.style.display = "none";
+            var modal = document.getElementById("imageModal");
+            modal.classList.add("hidden");  // Hide the modal
         }
     </script>
 
 </body>
+
 </html>
