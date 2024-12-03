@@ -31,6 +31,13 @@
             font-size: 1rem;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Optional text shadow for readability */
         }
+
+        /* Add this to make sure images are scaled properly */
+        .memory-container img {
+            max-width: 100%; /* Ensures the image scales with the container */
+            height: auto;    /* Maintains the image's aspect ratio */
+            object-fit: cover; /* Ensures the image covers the container without stretching */
+        }
     </style>
 </head>
 
@@ -44,7 +51,7 @@
     <main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
         <!-- Image 1 -->
         <div class="memory-container">
-            <img src="assets/IMG_4115.HEIC" alt="Memory 1" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
+            <img src="assets/IMG_4115.HEIC" alt="Memory 1" class="cursor-pointer" onclick="openModal(this)">
             <div class="memory-text">
                 <h2>Memory 1</h2>
                 <p class="memory-description">This was the day we went on that amazing hike!</p>
@@ -53,7 +60,7 @@
 
         <!-- Image 2 -->
         <div class="memory-container">
-            <img src="assets/IMG_4275.HEIC" alt="Memory 2" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
+            <img src="assets/IMG_4275.HEIC" alt="Memory 2" class="cursor-pointer" onclick="openModal(this)">
             <div class="memory-text">
                 <h2>Memory 2</h2>
                 <p class="memory-description">Celebrating our anniversary at the beach.</p>
@@ -62,7 +69,7 @@
 
         <!-- Image 3 -->
         <div class="memory-container">
-            <img src="assets/IMG_3275.JPG" alt="Memory 3" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
+            <img src="assets/IMG_3275.JPG" alt="Memory 3" class="cursor-pointer" onclick="openModal(this)">
             <div class="memory-text">
                 <h2>Memory 3</h2>
                 <p class="memory-description">A fun day at the carnival with lots of laughter.</p>
@@ -71,86 +78,7 @@
 
         <!-- Image 4 -->
         <div class="memory-container">
-            <img src="assets/IMG_5359.HEIC" alt="Memory 4" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
+            <img src="assets/IMG_5359.HEIC" alt="Memory 4" class="cursor-pointer" onclick="openModal(this)">
             <div class="memory-text">
                 <h2>Memory 4</h2>
-                <p class="memory-description">A memorable trip we took during the summer.</p>
-            </div>
-        </div>
-
-        <!-- Image 5 -->
-        <div class="memory-container">
-            <img src="assets/IMG_5351.HEIC" alt="Memory 5" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
-            <div class="memory-text">
-                <h2>Memory 5</h2>
-                <p class="memory-description">Enjoying a cozy evening together.</p>
-            </div>
-        </div>
-
-        <!-- Image 6 -->
-        <div class="memory-container">
-            <img src="assets/IMG_3347.JPG" alt="Memory 6" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
-            <div class="memory-text">
-                <h2>Memory 6</h2>
-                <p class="memory-description">A moment captured on a beautiful sunny day.</p>
-            </div>
-        </div>
-
-        <!-- Image 7 -->
-        <div class="memory-container">
-            <img src="assets/IMG_4524.PNG" alt="Memory 7" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
-            <div class="memory-text">
-                <h2>Memory 7</h2>
-                <p class="memory-description">Exploring new places together.</p>
-            </div>
-        </div>
-
-        <!-- Image 8 -->
-        <div class="memory-container">
-            <img src="assets/IMG_5351.HEIC" alt="Memory 8" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
-            <div class="memory-text">
-                <h2>Memory 8</h2>
-                <p class="memory-description">One of our most unforgettable moments.</p>
-            </div>
-        </div>
-
-        <!-- Image 9 -->
-        <div class="memory-container">
-            <img src="assets/IMG_5359.HEIC" alt="Memory 9" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
-            <div class="memory-text">
-                <h2>Memory 9</h2>
-                <p class="memory-description">Another fun-filled day with so much laughter!</p>
-            </div>
-        </div>
-
-    </main>
-
-    <!-- Modal for image enlargement -->
-    <div id="myModal" class="modal fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center hidden">
-        <span class="close text-white text-3xl absolute top-4 right-4 cursor-pointer" onclick="closeModal()">&times;</span>
-        <img class="modal-content max-w-full max-h-full" id="img01">
-    </div>
-
-    <footer class="text-center p-6 bg-black text-white">
-        <p>&copy; 2024 Amanuel & Layla. All Rights Reserved.</p>
-    </footer>
-
-    <script>
-        // Open the modal with the clicked image
-        function openModal(image) {
-            var modal = document.getElementById("myModal");
-            var modalImg = document.getElementById("img01");
-            modal.style.display = "flex";
-            modalImg.src = image.src;
-        }
-
-        // Close the modal
-        function closeModal() {
-            var modal = document.getElementById("myModal");
-            modal.style.display = "none";
-        }
-    </script>
-
-</body>
-
-</html>
+                <p class="memory-description">A memorable trip we took during the summer.</p
