@@ -95,17 +95,11 @@
             color: #dcdcdc;
         }
 
-        textarea {
-            width: 100%;
-            height: 80px;
-            padding: 10px;
+        #modalLetter {
             font-size: 1rem;
-            border-radius: 5px;
-            border: none;
-            outline: none;
-            resize: none;
-            background-color: #222;
-            color: #fff;
+            color: #f0f0f0;
+            line-height: 1.6;
+            text-align: left;
         }
 
         .media-player {
@@ -130,10 +124,10 @@
     </header>
 
     <main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
-        <!-- Add all memories -->
+        <!-- Memories -->
         <div class="memory-container">
             <img src="assets/mem1.png" alt="Memory 1" class="cursor-pointer" onclick="openImageModal(this)">
-            <div class="memory-text cursor-pointer" onclick="openTextModal(this, 'September 26 2024', 'Where it all started...', 'assets/audio.mp3', 'assets/video.mp4')">
+            <div class="memory-text cursor-pointer" onclick="openTextModal('September 26 2024', 'Where it all started...', 'Layla, on this day, my world changed forever. It was the beginning of a story I never want to end...', 'assets/audio.mp3', 'assets/video.mp4')">
                 <h2>September 26 2024</h2>
                 <p class="memory-description">Where it all started...</p>
             </div>
@@ -141,7 +135,7 @@
 
         <div class="memory-container">
             <img src="assets/IMG_4275.HEIC" alt="Memory 2" class="cursor-pointer" onclick="openImageModal(this)">
-            <div class="memory-text cursor-pointer" onclick="openTextModal(this, 'October 5 2024', 'NYC Adventure & Our First Kiss...', 'assets/audio2.mp3', 'assets/video2.mp4')">
+            <div class="memory-text cursor-pointer" onclick="openTextModal('October 5 2024', 'NYC Adventure & Our First Kiss', 'Layla, our time in NYC will always be etched in my heart. The city became magical because of you...', 'assets/audio2.mp3', 'assets/video2.mp4')">
                 <h2>October 5 2024</h2>
                 <p class="memory-description">NYC Adventure & Our First Kiss...</p>
             </div>
@@ -149,7 +143,7 @@
 
         <div class="memory-container">
             <img src="assets/IMG_3275.JPG" alt="Memory 3" class="cursor-pointer" onclick="openImageModal(this)">
-            <div class="memory-text cursor-pointer" onclick="openTextModal(this, 'October 16 2024', 'Our trip to the beach...', 'assets/audio3.mp3', 'assets/video3.mp4')">
+            <div class="memory-text cursor-pointer" onclick="openTextModal('October 16 2024', 'Our trip to the beach', 'The sound of waves and your laughter made it a perfect day. Thank you for making every moment special...', 'assets/audio3.mp3', 'assets/video3.mp4')">
                 <h2>October 16 2024</h2>
                 <p class="memory-description">Our trip to the beach...</p>
             </div>
@@ -163,7 +157,7 @@
         <div id="modalText" style="display: none;">
             <h2 id="modalTitle"></h2>
             <p id="modalDescription"></p>
-            <textarea id="note" placeholder="Write your memory here..."></textarea>
+            <p id="modalLetter"></p>
             <div class="media-player">
                 <audio controls id="audioPlayer"></audio>
             </div>
@@ -189,12 +183,13 @@
             modalText.style.display = "none";
         }
 
-        function openTextModal(element, title, description, audioSrc, videoSrc) {
+        function openTextModal(title, description, letter, audioSrc, videoSrc) {
             const modal = document.getElementById("myModal");
             const modalImg = document.getElementById("modalImg");
             const modalText = document.getElementById("modalText");
             const modalTitle = document.getElementById("modalTitle");
             const modalDescription = document.getElementById("modalDescription");
+            const modalLetter = document.getElementById("modalLetter");
             const audioPlayer = document.getElementById("audioPlayer");
             const videoPlayer = document.getElementById("videoPlayer");
 
@@ -204,6 +199,7 @@
 
             modalTitle.innerText = title;
             modalDescription.innerText = description;
+            modalLetter.innerText = letter;
             audioPlayer.src = audioSrc;
             videoPlayer.src = videoSrc;
         }
