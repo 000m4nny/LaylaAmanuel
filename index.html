@@ -54,9 +54,12 @@
         }
 
         .modal-content {
-            max-width: 90%;
-            max-height: 70%;
+            max-width: 80%;
+            max-height: 80%;
+            object-fit: contain;
             margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
         }
 
         .close {
@@ -69,21 +72,51 @@
             cursor: pointer;
         }
 
+        #modalText {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            background-color: rgba(30, 30, 30, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        #modalTitle {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #f5f5f5;
+        }
+
+        #modalDescription {
+            font-size: 1rem;
+            color: #dcdcdc;
+        }
+
         textarea {
             width: 100%;
-            max-width: 600px;
-            height: 100px;
-            margin-top: 20px;
+            height: 80px;
             padding: 10px;
             font-size: 1rem;
             border-radius: 5px;
             border: none;
             outline: none;
+            resize: none;
+            background-color: #222;
+            color: #fff;
         }
 
         .media-player {
-            margin-top: 20px;
-            max-width: 600px;
+            max-width: 100%;
+            width: 100%;
+            background-color: rgba(40, 40, 40, 0.8);
+            border-radius: 8px;
+        }
+
+        audio,
+        video {
             width: 100%;
         }
     </style>
@@ -97,7 +130,7 @@
     </header>
 
     <main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
-        <!-- Memory 1 -->
+        <!-- Add all memories -->
         <div class="memory-container">
             <img src="assets/mem1.png" alt="Memory 1" class="cursor-pointer" onclick="openImageModal(this)">
             <div class="memory-text cursor-pointer" onclick="openTextModal(this, 'September 26 2024', 'Where it all started...', 'assets/audio.mp3', 'assets/video.mp4')">
@@ -106,12 +139,19 @@
             </div>
         </div>
 
-        <!-- Memory 2 -->
         <div class="memory-container">
             <img src="assets/IMG_4275.HEIC" alt="Memory 2" class="cursor-pointer" onclick="openImageModal(this)">
-            <div class="memory-text cursor-pointer" onclick="openTextModal(this, 'October 5 2024', 'NYC Adventure & Our First Kiss...', 'assets/audio.mp3', 'assets/video.mp4')">
+            <div class="memory-text cursor-pointer" onclick="openTextModal(this, 'October 5 2024', 'NYC Adventure & Our First Kiss...', 'assets/audio2.mp3', 'assets/video2.mp4')">
                 <h2>October 5 2024</h2>
                 <p class="memory-description">NYC Adventure & Our First Kiss...</p>
+            </div>
+        </div>
+
+        <div class="memory-container">
+            <img src="assets/IMG_3275.JPG" alt="Memory 3" class="cursor-pointer" onclick="openImageModal(this)">
+            <div class="memory-text cursor-pointer" onclick="openTextModal(this, 'October 16 2024', 'Our trip to the beach...', 'assets/audio3.mp3', 'assets/video3.mp4')">
+                <h2>October 16 2024</h2>
+                <p class="memory-description">Our trip to the beach...</p>
             </div>
         </div>
     </main>
@@ -160,7 +200,7 @@
 
             modal.style.display = "flex";
             modalImg.style.display = "none";
-            modalText.style.display = "block";
+            modalText.style.display = "flex";
 
             modalTitle.innerText = title;
             modalDescription.innerText = description;
