@@ -113,6 +113,26 @@
         video {
             width: 100%;
         }
+
+        .thumbnail-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .thumbnail-container img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 8px;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .thumbnail-container img:hover {
+            border-color: #4A90E2;
+        }
     </style>
 </head>
 
@@ -163,6 +183,11 @@
             </div>
             <div class="media-player">
                 <video controls id="videoPlayer"></video>
+            </div>
+            <div class="thumbnail-container">
+                <img src="assets/thumb1.jpg" alt="Thumbnail 1">
+                <img src="assets/thumb2.jpg" alt="Thumbnail 2">
+                <img src="assets/thumb3.jpg" alt="Thumbnail 3">
             </div>
         </div>
     </div>
