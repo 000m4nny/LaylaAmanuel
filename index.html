@@ -10,11 +10,12 @@
         
         video {
     max-width: 100%; /* Ensures responsiveness */
-    width: 300px; /* Explicit smaller size for the frame */
-    height: 533px; /* Maintain aspect ratio */
-    border: 3px solid #4A90E2;
-    border-radius: 8px;
-    }
+    width: 150px; /* Explicit smaller size for the frame */
+    height: 266px; /* Maintain aspect ratio */
+    display: block;
+    margin: 0 auto; /* This centers the video horizontally */
+}
+
 
         .memory-container {
             position: relative;
@@ -116,7 +117,8 @@
             width: 100%;
             background-color: rgba(40, 40, 40, 0.8);
             border-radius: 8px;
-            margin: 0 auto; /* Center the media players */
+            display: block;
+            margin: 0 auto; /* This centers the video horizontally */
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
             padding: 10px;
         }
