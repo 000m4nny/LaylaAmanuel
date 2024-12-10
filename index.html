@@ -7,106 +7,130 @@
     <title>Our Memories</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        <style>
-    .modal {
-        display: none;
-        position: fixed;
-        z-index: 1;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.8);
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        padding: 20px;
-        box-sizing: border-box;
+        video, audio {
+            display: block;
+            margin: 0 auto;
+        }
+
+        video {
+    display: block;
+    margin: 0 auto;
+    max-width: 80%; /* Keep the width responsive */
+    max-height: 300px; /* Set the height limit to make it smaller */
+    height: auto; /* Let the height adjust according to aspect ratio */
+    border: 3px solid #4A90E2;
+    border-radius: 8px;
     }
 
-    .modal-content {
-        max-width: 80%;
-        max-height: 80%;
-        object-fit: contain;
-        margin-bottom: 20px;
-        border-radius: 10px;
-        box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
-    }
 
-    #modalText {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-        background-color: rgba(30, 30, 30, 0.9);
-        padding: 20px;
-        border-radius: 10px;
-        max-width: 600px;
-        text-align: center;
-        overflow-y: auto; /* Add vertical scrolling */
-        max-height: 80vh; /* Set a max height for the modal content */
-        width: 100%;
-    }
+        .memory-container {
+            position: relative;
+            overflow: hidden;
+        }
 
-    #modalTitle {
-        font-size: 1.5rem;
-        font-weight: bold;
-        color: #f5f5f5;
-    }
+        .memory-text {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            width: 90%;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
 
-    #modalDescription {
-        font-size: 1rem;
-        color: #dcdcdc;
-    }
+        .memory-description {
+            color: white;
+            font-size: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
 
-    #modalLetter {
-        font-size: 1rem;
-        color: #f0f0f0;
-        line-height: 1.6;
-        text-align: left;
-    }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 20px;
+            box-sizing: border-box;
+        }
 
-    .media-player {
-        max-width: 600px;
-        width: 100%;
-        background-color: rgba(40, 40, 40, 0.8);
-        border-radius: 8px;
-        display: block;
-        margin: 0 auto;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-        padding: 10px;
-    }
+        .modal-content {
+            max-width: 80%;
+            max-height: 80%;
+            object-fit: contain;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+        }
 
-    video {
-        max-width: 100%;
-        max-height: 300px; /* Adjusted to keep it small */
-        height: auto;
-        border: 3px solid #4A90E2;
-        border-radius: 8px;
-    }
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
 
-    .thumbnail-container {
-        display: flex;
-        justify-content: center;
-        gap: 10px;
-        margin-top: 20px;
-        flex-wrap: wrap; /* Ensure thumbnails wrap if needed */
-    }
+        #modalText {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            background-color: rgba(30, 30, 30, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 600px;
+            text-align: center;
+        }
 
-    .thumbnail-container img {
-        width: 80px;
-        height: 80px;
-        object-fit: cover;
-        border-radius: 8px;
-        cursor: pointer;
-        border: 2px solid transparent;
-    }
+        #modalTitle {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #f5f5f5;
+        }
 
-    .thumbnail-container img:hover {
-        border-color: #4A90E2;
-    }
-</style>
+        #modalDescription {
+            font-size: 1rem;
+            color: #dcdcdc;
+        }
 
+        #modalLetter {
+            font-size: 1rem;
+            color: #f0f0f0;
+            line-height: 1.6;
+            text-align: left;
+        }
+
+        .thumbnail-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .thumbnail-container img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 8px;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .thumbnail-container img:hover {
+            border-color: #4A90E2;
+        }
     </style>
 </head>
 
