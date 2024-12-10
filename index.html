@@ -13,7 +13,7 @@
         }
 
         video {
-            max-width: 80%;
+            max-width: 50%;
             height: auto;
             border: 3px solid #4A90E2;
             border-radius: 8px;
@@ -154,6 +154,14 @@
                 <p class="memory-description">NYC Adventure & Our First Kiss...</p>
             </div>
         </div>
+
+        <div class="memory-container">
+            <img src="assets/IMG_5359.HEIC" alt="Memory 3" class="cursor-pointer" onclick="openImageModal(this, 'modalThumbnails3')">
+            <div class="memory-text cursor-pointer" onclick="openTextModal('November 15 2024', 'Our Hangout in Downtown Jersey City', 'The sound of downtown and your laughter made it a perfect day. Thank you for making every moment special.', 'assets/audio3.mp3', 'assets/video3.mp4', 'modalThumbnails3')">
+                <h2>November 15 2024</h2>
+                <p class="memory-description">My Favorite Picture of Us...</p>
+            </div>
+        </div>
     </main>
 
     <!-- Modal -->
@@ -173,6 +181,10 @@
             <div class="thumbnail-container" id="modalThumbnails2" style="display: none;">
                 <img src="assets/thumb3.jpg" alt="Thumbnail 3" onclick="openImageModal(this)">
                 <img src="assets/thumb4.jpg" alt="Thumbnail 4" onclick="openImageModal(this)">
+            </div>
+            <div class="thumbnail-container" id="modalThumbnails3" style="display: none;">
+                <img src="assets/thumb5.jpg" alt="Thumbnail 5" onclick="openImageModal(this)">
+                <img src="assets/thumb6.jpg" alt="Thumbnail 6" onclick="openImageModal(this)">
             </div>
         </div>
     </div>
@@ -226,7 +238,19 @@
 
         function closeModal() {
             const modal = document.getElementById("myModal");
+            const modalImg = document.getElementById("modalImg");
+            const modalText = document.getElementById("modalText");
+            const audioPlayer = document.getElementById("audioPlayer");
+            const videoPlayer = document.getElementById("videoPlayer");
+
             modal.style.display = "none";
+            modalImg.style.display = "none";
+            modalText.style.display = "none";
+
+            audioPlayer.pause();
+            audioPlayer.currentTime = 0;
+            videoPlayer.pause();
+            videoPlayer.currentTime = 0;
         }
     </script>
 
