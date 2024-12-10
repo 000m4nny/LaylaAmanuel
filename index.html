@@ -7,14 +7,6 @@
     <title>Our Memories</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        
-        video {
-    max-width: 100%; /* Ensures responsiveness */
-    width: 300px; /* Explicit smaller size for the frame */
-    height: 533px; /* Maintain aspect ratio */
-    border-radius: 8px;
-    }
-
         .memory-container {
             position: relative;
             overflow: hidden;
@@ -111,23 +103,16 @@
         }
 
         .media-player {
-            max-width: 600px;
+            max-width: 100%;
             width: 100%;
             background-color: rgba(40, 40, 40, 0.8);
             border-radius: 8px;
-            margin: 0 auto; /* Center the media players */
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-            padding: 10px;
         }
 
+        audio,
         video {
-    max-width: 100%;
-    height: auto;
-    border: 3px solid #4A90E2;
-    border-radius: 8px;
-    display: block;
-    margin: 0 auto; /* This centers the video horizontally */
-}
+            width: 100%;
+        }
 
         .thumbnail-container {
             display: flex;
@@ -137,8 +122,8 @@
         }
 
         .thumbnail-container img {
-            width: 100px; /* Slightly larger thumbnails */
-            height: 100px;
+            width: 80px;
+            height: 80px;
             object-fit: cover;
             border-radius: 8px;
             cursor: pointer;
@@ -166,6 +151,11 @@
                 <h2>September 26 2024</h2>
                 <p class="memory-description">Where it all started...</p>
             </div>
+            <div class="thumbnail-container">
+                <img src="assets/thumb1.jpg" alt="Thumbnail 1" onclick="openImageModal(this)">
+                <img src="assets/thumb2.jpg" alt="Thumbnail 2" onclick="openImageModal(this)">
+                <img src="assets/thumb3.jpg" alt="Thumbnail 3" onclick="openImageModal(this)">
+            </div>
         </div>
 
         <div class="memory-container">
@@ -174,6 +164,11 @@
                 <h2>October 5 2024</h2>
                 <p class="memory-description">NYC Adventure & Our First Kiss...</p>
             </div>
+            <div class="thumbnail-container">
+                <img src="assets/thumb4.jpg" alt="Thumbnail 4" onclick="openImageModal(this)">
+                <img src="assets/thumb5.jpg" alt="Thumbnail 5" onclick="openImageModal(this)">
+                <img src="assets/thumb6.jpg" alt="Thumbnail 6" onclick="openImageModal(this)">
+            </div>
         </div>
 
         <div class="memory-container">
@@ -181,6 +176,11 @@
             <div class="memory-text cursor-pointer" onclick="openTextModal('November 15 2024', 'Our Hangout in Downtown Jersey City', 'The sound of downtown and your laughter made it a perfect day. Thank you for making every moment special.', 'assets/audio3.mp3', 'assets/video3.mp4')">
                 <h2>November 15 2024</h2>
                 <p class="memory-description">My Favorite Picture of Us...</p>
+            </div>
+            <div class="thumbnail-container">
+                <img src="assets/thumb7.jpg" alt="Thumbnail 7" onclick="openImageModal(this)">
+                <img src="assets/thumb8.jpg" alt="Thumbnail 8" onclick="openImageModal(this)">
+                <img src="assets/thumb9.jpg" alt="Thumbnail 9" onclick="openImageModal(this)">
             </div>
         </div>
     </main>
@@ -198,11 +198,6 @@
             </div>
             <div class="media-player">
                 <video controls id="videoPlayer"></video>
-            </div>
-            <div class="thumbnail-container">
-                <img src="assets/mem1.png" alt="Thumbnail 1">
-                <img src="assets/thumb2.jpg" alt="Thumbnail 2">
-                <img src="assets/thumb3.jpg" alt="Thumbnail 3">
             </div>
         </div>
     </div>
@@ -227,9 +222,6 @@
             const modal = document.getElementById("myModal");
             const modalImg = document.getElementById("modalImg");
             const modalText = document.getElementById("modalText");
-            const modalTitle = document.getElementById("modalTitle");
-            const modalDescription = document.getElementById("modalDescription");
-            const modalLetter = document.getElementById("modalLetter");
             const audioPlayer = document.getElementById("audioPlayer");
             const videoPlayer = document.getElementById("videoPlayer");
 
@@ -237,31 +229,18 @@
             modalImg.style.display = "none";
             modalText.style.display = "flex";
 
-            modalTitle.innerText = title;
-            modalDescription.innerText = description;
-            modalLetter.innerText = letter;
+            document.getElementById("modalTitle").innerText = title;
+            document.getElementById("modalDescription").innerText = description;
+            document.getElementById("modalLetter").innerText = letter;
             audioPlayer.src = audioSrc;
             videoPlayer.src = videoSrc;
         }
 
         function closeModal() {
             const modal = document.getElementById("myModal");
-            const modalImg = document.getElementById("modalImg");
-            const modalText = document.getElementById("modalText");
-            const audioPlayer = document.getElementById("audioPlayer");
-            const videoPlayer = document.getElementById("videoPlayer");
-
             modal.style.display = "none";
-            modalImg.style.display = "none";
-            modalText.style.display = "none";
-
-            audioPlayer.pause();
-            audioPlayer.currentTime = 0;
-            videoPlayer.pause();
-            videoPlayer.currentTime = 0;
         }
     </script>
-
 </body>
 
 </html>
