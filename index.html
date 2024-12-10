@@ -103,15 +103,20 @@
         }
 
         .media-player {
-            max-width: 100%;
+            max-width: 600px;
             width: 100%;
             background-color: rgba(40, 40, 40, 0.8);
             border-radius: 8px;
+            margin: 0 auto; /* Center the media players */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            padding: 10px;
         }
 
-        audio,
         video {
-            width: 100%;
+            max-width: 100%;
+            height: auto;
+            border: 3px solid #4A90E2;
+            border-radius: 8px;
         }
 
         .thumbnail-container {
@@ -122,8 +127,8 @@
         }
 
         .thumbnail-container img {
-            width: 80px;
-            height: 80px;
+            width: 100px; /* Slightly larger thumbnails */
+            height: 100px;
             object-fit: cover;
             border-radius: 8px;
             cursor: pointer;
@@ -231,14 +236,19 @@
 
         function closeModal() {
             const modal = document.getElementById("myModal");
-            modal.style.display = "none";
-        }
+            const modalImg = document.getElementById("modalImg");
+            const modalText = document.getElementById("modalText");
+            const audioPlayer = document.getElementById("audioPlayer");
+            const videoPlayer = document.getElementById("videoPlayer");
 
-        window.onclick = function (event) {
-            const modal = document.getElementById("myModal");
-            if (event.target === modal) {
-                closeModal();
-            }
+            modal.style.display = "none";
+            modalImg.style.display = "none";
+            modalText.style.display = "none";
+
+            audioPlayer.pause();
+            audioPlayer.currentTime = 0;
+            videoPlayer.pause();
+            videoPlayer.currentTime = 0;
         }
     </script>
 
