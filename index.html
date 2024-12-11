@@ -140,6 +140,12 @@
 </head>
 
 <body class="bg-black text-white">
+<script>
+    // Check if the user has entered the correct password in the session
+    if (!sessionStorage.getItem("passwordEntered")) {
+        window.location.href = "password-protected.html"; // Redirect to password page if not entered
+    }
+</script>
 
     <header class="text-center p-10">
         <h1 class="text-4xl font-bold text-blue-600">Our Special Memories</h1>
